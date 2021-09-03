@@ -1,8 +1,5 @@
-//Modal element
 var modal = document.getElementById('modal-window');
-//Open modal button
 var modalBtn = document.getElementById('modal-button');
-//Close modal button
 var closeBtn = document.getElementsByClassName("close-button")[0];
 
 modalBtn.addEventListener('click', openModal);
@@ -15,4 +12,12 @@ closeBtn.addEventListener('click', closeModal);
 
 function closeModal() {
     modal.style.display= 'none';
+}
+
+window.addEventListener('click', clickOutside);
+
+function clickOutside(e) {
+    if(e.target == modal) {
+        modal.style.display= 'none';
+    }
 }
