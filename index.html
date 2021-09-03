@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
- 
-    <button id="modal-button" class="button">Click Here</button>
+    <button id="modal-button" class="button">Click to create</button>
     <div id="modal-window" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -17,28 +16,49 @@
                 <h2>Create new entry</h2>
             </div>
             <div class="modal-body">
-               <form action="">
-                    <input type="text" placeholder="Name" required>
-                    <input type="text" placeholder="Surname" required>
-                    <input type="email" placeholder="Email" required>
-
-                    <label for="gender"> Select you gender</label>
-                    <select name="gender" required>
-                        <option value="none" selected>Gender</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="other">Other</option>
-                    </select>
+                   <div>
+                         <input type="text" name="name" id="name" placeholder="Name">
+                    </div>
+                    <div>
+                         <input type="text" name="surname" id="surname" placeholder="Surname">
+                     </div>
+                    <div>
+                         <input type="email" name="email" id="email" placeholder="Email">
+                     </div>
+                    <div>
+                        <label for="gender"> Select you gender</label>
+                        <select name="gender" id="gender">
+                            <option value="none" selected>Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
                     <div>
                         <label for="birthday">Birthday:</label>
-                        <input type="date" id="birthday" name="birth-day"
-                        max="2005-12-31" required>
+                        <input type="date" id="birthday" name="birthday"
+                        max="2005-12-31">
                     </div>
-                    <a href="" class="submit-button">Submit</a>
-               </form>
+                    <div>
+                       <button type="submit" id="submit-button" value="Submit" onclick="onCreate()">Submit</button>
+                     </div>
             </div>       
         </div>
     </div>
+    <table border="1" id="myTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Email</th>
+                <th>Gender</th>
+                <th>Age</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
 
     <script src="index.js"></script>
 </body>

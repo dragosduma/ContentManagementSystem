@@ -94,19 +94,28 @@ select {
     color: #fff;
 }
 
-.submit-button {
+#submit-button {
+    width: 120px;
+    height: 40px;
     color: #fff;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
     text-decoration: none;
     color: #15172b;
     background-color: #787A91;
 }
      
-.submit-button:hover {
+#submit-button:hover {
     color: #fff;
     background-color: #3E215D;
 }
   
   
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 3px solid #6E85B2;
+  }
   
