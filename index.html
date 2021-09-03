@@ -17,7 +17,25 @@
                 <h2>Create new entry</h2>
             </div>
             <div class="modal-body">
-               <p>Hello World!</p> 
+               <form action="">
+                    <input type="text" placeholder="Name" required>
+                    <input type="text" placeholder="Surname" required>
+                    <input type="email" placeholder="Email" required>
+
+                    <label for="gender"> Select you gender</label>
+                    <select name="gender" required>
+                        <option value="none" selected>Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <div>
+                        <label for="birthday">Birthday:</label>
+                        <input type="date" id="birthday" name="birth-day"
+                        max="2005-12-31" required>
+                    </div>
+                    <a href="" class="submit-button">Submit</a>
+               </form>
             </div>       
         </div>
     </div>
