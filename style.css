@@ -30,9 +30,22 @@ body {
 .modal-content {
     background-color: #6E85B2;
     margin: 20% auto;
-    padding: 20px;
-    width: 40%;
+    width: 500px;
     box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
+    animation-name: modalopen;
+    animation-duration: 1s;
+}
+
+.modal-header h2 {
+    margin: 0;
+}
+
+.modal-header {
+    padding: 15px;
+}
+
+.modal-body {
+    padding: 10px 20px;
 }
 
 .close-button {
@@ -45,4 +58,9 @@ body {
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+
+@keyframes modalopen {
+    from {opacity: 0}
+    to {opacity: 1}
 }
