@@ -34,3 +34,15 @@ body {
     width: 40%;
     box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
 }
+
+.close-button {
+    color: #ccc;
+    float: right;
+    font-size: 30px;
+}
+
+.close-button:hover, .close-button:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
