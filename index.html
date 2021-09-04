@@ -9,6 +9,7 @@
 </head>
 <body>
     <button id="modal-button" class="button">Click to create</button>
+    <form action="#" method="post" id="myForm" onsubmit="onCreate()">
     <div id="modal-window" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -16,35 +17,28 @@
                 <h2>Create new entry</h2>
             </div>
             <div class="modal-body">
-                   <div>
-                         <input type="text" name="name" id="name" placeholder="Name">
-                    </div>
-                    <div>
-                         <input type="text" name="surname" id="surname" placeholder="Surname">
-                     </div>
-                    <div>
-                         <input type="email" name="email" id="email" placeholder="Email">
-                     </div>
-                    <div>
+               
+                        <input type="text" name="name" id="name" placeholder="Name" oninvalid="alert('Invalid name!')" required="required">
+                        <input type="text" name="surname" id="surname" placeholder="Surname" oninvalid="alert('Invalid surname!')" required="required">
+                        <input type="email" name="email" id="email" placeholder="Email" oninvalid="alert('Invalid email!')" required="required">
                         <label for="gender"> Select you gender</label>
-                        <select name="gender" id="gender">
+                        <select name="gender" id="gender" oninvalid="alert('Invalid gender!')" required="required">
                             <option value="none" selected>Gender</option>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                             <option value="other">Other</option>
                         </select>
-                    </div>
-                    <div>
+                        <br>
                         <label for="birthday">Birthday:</label>
                         <input type="date" id="birthday" name="birthday"
-                        max="2005-12-31">
-                    </div>
-                    <div>
-                       <button type="submit" id="submit-button" value="Submit" onclick="onCreate()">Submit</button>
-                     </div>
+                        max="2005-12-31" oninvalid="alert('Invalid birthday!')" required="required">
+                        <br><br>
+                       <button type="submit" id="submit-button" value="Submit" >Submit</button>
+
             </div>       
         </div>
     </div>
+    </form> 
     <table border="1" id="myTable">
         <thead>
             <tr>
@@ -53,13 +47,19 @@
                 <th>Email</th>
                 <th>Gender</th>
                 <th>Age</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
         </tbody>
     </table>
-
-
+    <script>
+        var form = document.getElementById("myForm");
+        function handleForm(event) {
+            event.preventDefault();
+        }
+        form.addEventListener('submit', handleForm);
+    </script>
     <script src="index.js"></script>
 </body>
 </html>

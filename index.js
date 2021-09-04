@@ -26,7 +26,10 @@ function clickOutside(e) {
 
 function onCreate() {
     var formData = readFormData();
-    insertNewRecord(formData);
+    if(formData!=null) {
+            insertNewRecord(formData);
+    }
+    clearFields();
 }
 
 function readFormData() {
@@ -36,7 +39,7 @@ function readFormData() {
     formData["email"] = document.getElementById("email").value;
     formData["gender"] = document.getElementById("gender").value;
     formData["birthday"] = document.getElementById("birthday").value;
-    return formData;
+        return formData;
 }
 
 function insertNewRecord(data) {
@@ -52,4 +55,25 @@ function insertNewRecord(data) {
     cell4.innerHTML = data.gender;
     cell5 = newRow.insertCell(4);
     cell5.innerHTML = data.birthday;
+    cell6 = newRow.insertCell(5);
+    cell6.innerHTML = `<td><button class="delete-button" onclick="onDelete()">Delete</button></td>`
+}
+
+function clearFields() {
+    document.getElementById("name").value = "";
+    document.getElementById("surname").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("gender").value = "";
+    document.getElementById("birthday").value = "";
+}
+
+function onDelete() {
+    var index;
+    var table = document.getElementById('myTable');
+    for ( var i = 1; i < table.rows.length; i++) {
+            table.rows[i].cells[5].onclick = function () {
+            index = this.parentElement.rowIndex;
+            table.deleteRow(index);
+        };
+    } 
 }
