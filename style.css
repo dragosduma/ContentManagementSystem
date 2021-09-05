@@ -110,8 +110,7 @@ select {
     color: #fff;
     background-color: #3E215D;
 }
-  
-  
+    
 table {
     justify-self: center;
     table-layout: fixed;
@@ -123,7 +122,7 @@ table {
     margin-right: auto;
   }
 
-  td, th {
+td, th {
     max-width: 0;
     overflow: hidden;
     text-overflow: ellipsis;

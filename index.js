@@ -2,6 +2,7 @@ var modal = document.getElementById('modal-window');
 var modalBtn = document.getElementById('modal-button');
 var closeBtn = document.getElementsByClassName("close-button")[0];
 var submitBtn = document.getElementById('submit-button');
+
 modalBtn.addEventListener('click', openModal);
 
 function openModal() {
