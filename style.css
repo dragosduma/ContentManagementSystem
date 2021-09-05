@@ -113,11 +113,14 @@ select {
   
   
 table {
+    justify-self: center;
     table-layout: fixed;
     width: 100%;
     border-collapse: collapse;
     border: 3px solid #6E85B2;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   td, th {
