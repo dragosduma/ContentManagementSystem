@@ -91,16 +91,10 @@
       }
       form.addEventListener("submit", handleForm);
     </script>
-
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-          https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-firestore.js"></script>
 
     <script>
-      // Your web app's Firebase configuration
       var firebaseConfig = {
         apiKey: "AIzaSyCOV7N9C-OCF78rsssqnc2idXT6hO4paZw",
         authDomain: "contentmanagementsystem-d1f08.firebaseapp.com",
@@ -109,7 +103,6 @@
         messagingSenderId: "481878634238",
         appId: "1:481878634238:web:a5d59d5a81cba4d9dabfaf",
       };
-      // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
       const db = firebase.firestore();
     </script>
