@@ -1,4 +1,3 @@
-//showData();
 var modal = document.getElementById('modal-window');
 var modalBtn = document.getElementById('modal-button');
 var closeBtn = document.getElementsByClassName("close-button")[0];
@@ -25,36 +24,12 @@ function clickOutside(e) {
     }
 }
 
-function onDelete() {
-    var index;
-    var table = document.getElementById('myTable');
-    for ( var i = 1; i < table.rows.length; i++) {
-            table.rows[i].cells[5].onclick = function () {
-            index = this.parentElement.rowIndex;
-            table.deleteRow(index);
-        };
-    } 
-}
-
 function clearFields() {
     document.getElementById("name").value = "";
     document.getElementById("surname").value = "";
     document.getElementById("email").value = "";
     document.getElementById("gender").value = "";
     document.getElementById("birthday").value = "";
-}
-
-function deleteData(index) {
-    getData();
-    var table = document.getElementById('myTable');
-    console.log(index-1);
-    var del = JSON.parse(localStorage.getItem("localData"));
-    for(var i = 0; i < del.length; i++) {
-        if(del.name == table.rows[i].name) {
-            arr.splice[i];
-            localStorage.setItem("localData",JSON.stringify(arr));
-        }
-    }
 }
 
 let id;
@@ -72,13 +47,16 @@ const renderUser = doc => {
         <td><button class="delete-button">Delete</button></td>
     </tr>`;
     tableUsers.insertAdjacentHTML('beforeend',tr);
-}
 
-db.collection('users').get().then(querySnapshot => {
-  querySnapshot.forEach(doc => {
-    renderUser(doc);
-  })
-});
+    const btnDelete = document.querySelector(`[data-id='${doc.id}'] .delete-button`);
+    btnDelete.addEventListener('click', () => {
+        db.collection('users').doc(`${doc.id}`).delete().then(() => {
+        console.log('Document deleted!');
+        }).catch(err => {
+            console.log('Error removing odcument', err);
+        })
+    });
+}
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -89,4 +67,18 @@ form.addEventListener('submit', (e) => {
         gender: formSelector.gender.value,
         birthday: formSelector.birthday.value
     });
+    clearFields();
 });
+
+db.collection('users').onSnapshot(snapshot => {
+    snapshot.docChanges().forEach(change => {
+        if(change.type === 'added') {
+            renderUser(change.doc);
+        }
+        if(change.type === 'removed') {
+            let tr = document.querySelector(`[data-id='${change.doc.id}']`);
+            let tbody = tr.parentElement;
+            tableUsers.removeChild(tbody);
+        }
+    })
+})
