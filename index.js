@@ -1,4 +1,4 @@
-showData();
+//showData();
 var modal = document.getElementById('modal-window');
 var modalBtn = document.getElementById('modal-button');
 var closeBtn = document.getElementsByClassName("close-button")[0];
@@ -70,22 +70,23 @@ function getData() {
     }
 }
     
-function showData() {
-    getData();
-    var table = document.getElementById('myTable').getElementsByTagName('tbody')[0];
-    for(i=0; i< arr.length; i++) {
-        var row = table.insertRow();
-        var cell1 = row.insertCell();
-        var cell2 = row.insertCell();
-        var cell3 = row.insertCell();
-        var cell4 = row.insertCell();
-        var cell5 = row.insertCell();
-        var cell6 = row.insertCell();
-        cell1.innerHTML = arr[i].name
-        cell2.innerHTML = arr[i].surname;
-        cell3.innerHTML = arr[i].email;
-        cell4.innerHTML = arr[i].gender;
-        cell5.innerHTML = arr[i].birthday;
-        cell6.innerHTML = `<td><button class="delete-button" onclick="onDelete()">Delete</button></td>`;
-    }
-}
+// function showData() {
+//     getData();
+//     var table = document.getElementById('myTable').getElementsByTagName('tbody')[0];
+//     for(i=0; i< arr.length; i++) {
+//         var row = table.insertRow();
+//         var cell1 = row.insertCell();
+//         var cell2 = row.insertCell();
+//         var cell3 = row.insertCell();
+//         var cell4 = row.insertCell();
+//         var cell5 = row.insertCell();
+//         var cell6 = row.insertCell();
+//         cell1.innerHTML = arr[i].name
+//         cell2.innerHTML = arr[i].surname;
+//         cell3.innerHTML = arr[i].email;
+//         cell4.innerHTML = arr[i].gender;
+//         cell5.innerHTML = arr[i].birthday;
+//         cell6.innerHTML = `<td><button class="delete-button" onclick="onDelete()">Delete</button></td>`;
+//     }
+// }
+
