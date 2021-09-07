@@ -44,48 +44,6 @@ function clearFields() {
     document.getElementById("birthday").value = "";
 }
 
-var arr = new Array();
-
-function addData() {
-    getData();
-    arr.push({
-        name: document.getElementById("name").value,
-        surname: document.getElementById("surname").value,
-        email: document.getElementById("email").value,
-        gender: document.getElementById("gender").value,
-        birthday: document.getElementById("birthday").value
-    });
-    localStorage.setItem("localData", JSON.stringify(arr));
-    location.reload();
-}
-
-function getData() {
-    var str = localStorage.getItem("localData");
-    if(str!=null) {
-        arr = JSON.parse(str);
-    }
-}
-    
-function showData() {
-    getData();
-    var table = document.getElementById('myTable').getElementsByTagName('tbody')[0];
-    for(i=0; i< arr.length; i++) {
-        var row = table.insertRow();
-        var cell1 = row.insertCell();
-        var cell2 = row.insertCell();
-        var cell3 = row.insertCell();
-        var cell4 = row.insertCell();
-        var cell5 = row.insertCell();
-        var cell6 = row.insertCell();
-        cell1.innerHTML = arr[i].name
-        cell2.innerHTML = arr[i].surname;
-        cell3.innerHTML = arr[i].email;
-        cell4.innerHTML = arr[i].gender;
-        cell5.innerHTML = arr[i].birthday;
-        cell6.innerHTML = `<td><button class="delete-button" onclick="onDelete()">Delete</button></td>`;
-    }
-}
-
 function deleteData(index) {
     getData();
     var table = document.getElementById('myTable');
@@ -98,3 +56,37 @@ function deleteData(index) {
         }
     }
 }
+
+let id;
+
+const tableUsers = document.querySelector('#myTable');
+const formSelector = document.querySelector('#myForm');
+const renderUser = doc => {
+    const tr = `
+    <tr data-id='${doc.id}'>
+        <td>${doc.data().name}</td>
+        <td>${doc.data().surname}</td>
+        <td>${doc.data().email}</td>
+        <td>${doc.data().gender}</td>
+        <td>${doc.data().birthday}</td>
+        <td><button class="delete-button">Delete</button></td>
+    </tr>`;
+    tableUsers.insertAdjacentHTML('beforeend',tr);
+}
+
+db.collection('users').get().then(querySnapshot => {
+  querySnapshot.forEach(doc => {
+    renderUser(doc);
+  })
+});
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    db.collection('users').add({
+        name: formSelector.name.value,
+        surname: formSelector.surname.value,
+        email: formSelector.email.value,
+        gender: formSelector.gender.value,
+        birthday: formSelector.birthday.value
+    });
+});
