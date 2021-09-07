@@ -32,10 +32,6 @@ function onDelete() {
             table.rows[i].cells[5].onclick = function () {
             index = this.parentElement.rowIndex;
             table.deleteRow(index);
-
-           /* var del = JSON.parse(localStorage.getItem("localData"));
-            del.slice(index-1, 1);
-            localStorage.setItem("localData", JSON.stringify(arr));*/
         };
     } 
 }
@@ -87,5 +83,18 @@ function showData() {
         cell4.innerHTML = arr[i].gender;
         cell5.innerHTML = arr[i].birthday;
         cell6.innerHTML = `<td><button class="delete-button" onclick="onDelete()">Delete</button></td>`;
+    }
+}
+
+function deleteData(index) {
+    getData();
+    var table = document.getElementById('myTable');
+    console.log(index-1);
+    var del = JSON.parse(localStorage.getItem("localData"));
+    for(var i = 0; i < del.length; i++) {
+        if(del.name == table.rows[i].name) {
+            arr.splice[i];
+            localStorage.setItem("localData",JSON.stringify(arr));
+        }
     }
 }
