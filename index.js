@@ -43,23 +43,27 @@ const renderUser = (doc) => {
         <td>${doc.data().email}</td>
         <td>${doc.data().gender}</td>
         <td>${doc.data().birthday}</td>
-        <td><button class="delete-button">Delete</button></td>
+        <td> 
+        <button class="btn delete-button">Delete</button>
+        </td>
     </tr>`;
   tableUsers.insertAdjacentHTML("beforeend", tr);
 
-  const btnDelete = document.querySelector(
-    `[data-id='${doc.id}'] .delete-button`
-  );
+  const btnDelete = document.querySelector(`[data-id='${doc.id}'] .delete-button`);
+
   btnDelete.addEventListener("click", () => {
-    db.collection("users")
-      .doc(`${doc.id}`)
-      .delete()
-      .then(() => {
-        console.log("Document deleted!");
-      })
-      .catch((err) => {
-        console.log("Error removing odcument", err);
-      });
+    var result = confirm("Are you sure you want to delete entry?");
+    if (result){
+        db.collection("users")
+        .doc(`${doc.id}`)
+        .delete()
+        .then(() => {
+          console.log("Document deleted!");
+        })
+        .catch((err) => {
+          console.log("Error removing odcument", err);
+        });
+    }
   });
 };
 
@@ -87,3 +91,4 @@ db.collection("users").onSnapshot((snapshot) => {
     }
   });
 });
+

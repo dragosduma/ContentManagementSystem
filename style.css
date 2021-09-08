@@ -1,131 +1,183 @@
 body {
-    align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 17px;
-    display: flex;
-    line-height: 1.6;
-    justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  display: flex;
+  line-height: 1.6;
+  justify-content: center;
+}
+
+:root {
+  --primary-color: #955df4;
+  --secondary-color: #ff816c;
 }
 
 .button {
-    background-color: #5C527F;
-    padding: 1em 2em;
-    color: #fff;
-    border: 0;
+  background: transparent;
+  background-color: #261C2C;
+  padding: 1em 2em;
+  color: #fff;
+  border: 0;
+  transition: all 0.5s ease;
 }
 
 .button:hover {
-    background: gray;
+  background: gray;
+}
+
+.button {
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.button:hover {
+  background: var(--primary-color);
+  color: #fff;
 }
 
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
-    background-color: rgba(0,0,0,0.5);
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
-    position: flex;
-    background-color: #15172b;
-    margin: 20% auto;
-    max-width: 500px;
-    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
-    animation-name: modalopen;
-    animation-duration: 1s;
-    text-align: center;
-    padding: 20px;
-    color: #fff;
+  position: flex;
+  background-color: #15172b;
+  margin: 20% auto;
+  max-width: 500px;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  animation-name: modalopen;
+  animation-duration: 1s;
+  text-align: center;
+  padding: 20px;
+  color: #fff;
 }
 
 .modal-header h2 {
-    margin: 0;
+  margin: 0;
 }
 
 .modal-header {
-    padding: 15px;
+  padding: 15px;
 }
 
 .modal-body {
-    padding: 10px 20px;
+  padding: 10px 20px;
 }
 
 .close-button {
-    color: #ccc;
-    float: right;
-    font-size: 30px;
+  color: #ccc;
+  float: right;
+  font-size: 30px;
 }
 
-.close-button:hover, .close-button:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+.close-button:hover,
+.close-button:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 @keyframes modalopen {
-    from {opacity: 0}
-    to {opacity: 1}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 input {
-    background-color: #303245;
-    border-radius: 12px;
-    border: 0;
-    box-sizing: border-box;
-    color: #eee;
-    font-size: 18px;
-    height: 100%;
-    outline: 0;
-    padding: 4px 20px 0;
-    width: 100%;
+  background-color: #303245;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  font-size: 18px;
+  height: 100%;
+  outline: 0;
+  padding: 4px 20px 0;
+  width: 100%;
 }
 
 select {
-    width: 80%;
-    padding: 10px 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #303245;
-    color: #fff;
+  width: 80%;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #303245;
+  color: #fff;
 }
 
 #submit-button {
-    width: 120px;
-    height: 40px;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    color: #15172b;
-    background-color: #787A91;
+  width: 120px;
+  height: 40px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #15172b;
+  background-color: #787a91;
 }
-     
-#submit-button:hover {
-    color: #fff;
-    background-color: #3E215D;
-}
-    
-table {
-    justify-self: center;
-    table-layout: fixed;
-    width: 100%;
-    border-collapse: collapse;
-    border: 3px solid #6E85B2;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-  }
 
-td, th {
-    max-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  
+#submit-button:hover {
+  color: #fff;
+  background-color: #3e215d;
+}
+
+.btn {
+  background: transparent;
+  width: 5rem;
+  height: 2rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.5s ease;
+}
+
+.edit-button {
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+}
+
+.edit-button:hover {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.delete-button {
+  color: var(--secondary-color);
+  border: 1px solid var(--secondary-color);
+}
+
+.delete-button:hover {
+  background: var(--secondary-color);
+  color: #fff;
+}
+
+table {
+  justify-self: center;
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid #6e85b2;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td,
+th {
+  max-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
